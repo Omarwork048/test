@@ -13,11 +13,12 @@ class CustomTextField extends StatelessWidget {
   bool? obscureText;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return TextField(
       obscureText: obscureText!,
       onChanged: onChanged,
       keyboardType: inputType,
       decoration: InputDecoration(
+        filled: true,
         hintText: hintText,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
