@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test/screens/constants.dart';
+import 'package:test/widgets/custom_text_field.dart';
 
 class SignUp extends StatefulWidget {
   static String id = 'SingupScreen';
@@ -52,6 +54,7 @@ class _SignUpState extends State<SignUp> with RegisterAuth {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             const SizedBox(height: 25.0),
+                            CustomTextField(),
                             TextFormField(
                               decoration: buildInputDecoration("Email"),
                               validator: InputValidator.email,
@@ -86,31 +89,15 @@ class _SignUpState extends State<SignUp> with RegisterAuth {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 26.0),
-                        child: CheckboxListTile(
-                          onChanged: (a) {
-                            setState(() {
-                              rememberMe = !rememberMe;
-                            });
-                          },
-                          value: rememberMe,
-                          controlAffinity: ListTileControlAffinity.leading,
-                          title: const Text(
-                            "Receive our weekly newsletter and other occasional updates",
-                            style: TextStyle(
-                              fontSize: 12.0,
-                            ),
-                          ),
-                        ),
-                      ),
                       const SizedBox(height: 15.0),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 26),
                         child: MaterialButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
                           height: 40.0,
                           minWidth: MediaQuery.of(context).size.width,
-                          color: const Color(0xff449b76),
+                          color: KmainColor,
                           onPressed: () {
                             register();
                           },
@@ -215,12 +202,12 @@ class InputValidator {
   static String? emailText;
   static String? name;
 
-  static emptyCheck(String msg) {
-    return (t) {
-      if (t.isEmpty || t == null) return msg;
-      return null;
-    };
-  }
+  // static emptyCheck(String msg) {
+  //   return (t) {
+  //     if (t.isEmpty || t == null) return msg;
+  //     return null;
+  //   };
+  // }
 
   static String? email(String? t) {
     if (t!.isEmpty) return "Email can't be empty";
@@ -233,3 +220,22 @@ class InputValidator {
     return null;
   }
 }
+
+// Padding(
+//   padding: const EdgeInsets.only(right: 26.0),
+//   child: CheckboxListTile(
+//     onChanged: (a) {
+//       setState(() {
+//         rememberMe = !rememberMe;
+//       });
+//     },
+//     value: rememberMe,
+//     controlAffinity: ListTileControlAffinity.leading,
+//     title: const Text(
+//       "Receive our weekly newsletter and other occasional updates",
+//       style: TextStyle(
+//         fontSize: 12.0,
+//       ),
+//     ),
+//   ),
+// ),

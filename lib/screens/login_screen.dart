@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test/screens/constants.dart';
 import 'package:test/screens/signup_screen.dart';
+import 'package:test/widgets/custom_button.dart';
+import 'package:test/widgets/custom_text_field.dart';
 
 class LoginScreen extends StatelessWidget {
   static String id = 'LiginScreen';
@@ -13,7 +15,7 @@ class LoginScreen extends StatelessWidget {
           title: Text("Sign in"),
         ),
         body: Container(
-          color: Colors.white,
+          color: KwColor,
           child: ListView(
             children: <Widget>[
               Padding(
@@ -47,18 +49,30 @@ class LoginScreen extends StatelessWidget {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
-                child: TextField(
-                  cursorColor: KmainColor,
-                  decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(22)),
-                      hintText: 'Username or Phone Number',
-                      filled: true,
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(22),
-                          borderSide: BorderSide(color: Colors.black))),
+                child: CustomTextField(
+                  hintText: "Username or Phone Number",
+                  inputType: TextInputType.emailAddress,
                 ),
               ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+                child: CustomTextField(
+                  hintText: "Password",
+                  obscureText: true,
+                  inputType: TextInputType.number,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(16),
+                child: CustomButton(text: "Login"),
+              ),
+              Container(
+                alignment: Alignment.center,
+                child: Text("Or connect using",
+                    style: TextStyle(color: Colors.black38)),
+              ),
+              SizedBox(height: 150),
               Container(
                 alignment: Alignment.center,
                 child: Text.rich(TextSpan(
