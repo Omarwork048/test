@@ -22,7 +22,7 @@ class CustomButtonConnect extends StatelessWidget {
           ),
           Text(
             text,
-            style: TextStyle(color: Colors.black, fontSize: 20),
+            style: TextStyle(color: Colors.black, fontSize: 15),
           ),
         ],
       ),

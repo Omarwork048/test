@@ -10,8 +10,22 @@ class c extends StatelessWidget {
       backgroundColor: KmainColor,
       appBar: AppBar(
         elevation: 0,
+        actions: <Widget>[
+          ButtonBar(
+            children: [
+              Text("Skip",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ))
+            ],
+          )
+        ],
         backgroundColor: KmainColor,
-        title: Text("omar"),
+        title: Text("Sign in",
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            )),
       ),
       body: ListView(
         padding: const EdgeInsets.only(top: 8),
